@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.demo.ezdine.R
 import com.demo.ezdine.databinding.FragmentSaleBinding
 
 class SaleFragment : Fragment() {
@@ -27,10 +28,19 @@ class SaleFragment : Fragment() {
         _binding = FragmentSaleBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+//        val textView: TextView = binding.
+//        homeViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+
+        binding.btn1.setOnClickListener {
+                binding.motionLayout.transitionToState(R.id.start)
         }
+
+        binding.btn2.setOnClickListener {
+            binding.motionLayout.transitionToState(R.id.end)
+        }
+
         return root
     }
 
