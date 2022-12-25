@@ -58,9 +58,11 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 when(id){
                     R.id.nav_sale -> {
                         navController.navigate(R.id.nav_sale)
+//                        navController.popBackStack(R.id.nav_sale,false)
                     }
                     R.id.nav_order -> {
                         navController.navigate(R.id.nav_order)
+//                        navController.popBackStack(R.id.nav_order,false)
                     }
                     R.id.logout -> {
                         Toast.makeText(this@MainActivity, "logout", Toast.LENGTH_SHORT).show()

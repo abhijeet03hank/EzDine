@@ -53,6 +53,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -70,7 +71,8 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.2"
     implementation "androidx.room:room-ktx:2.4.2"
 
-
+    //For motion layout dependency
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
 //    implementation 'com.google.dagger:dagger:2.44.2'
 //    kapt 'com.google.dagger:dagger-compiler:2.44.2'
@@ -80,6 +82,7 @@ dependencies {
 
     //Gson is a Java library that can be used to convert Java Objects into their JSON representation and vice-versa.
     implementation 'com.google.code.gson:gson:2.10'
+
 }
 kapt {
     correctErrorTypes true
