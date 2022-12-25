@@ -1,0 +1,41 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="margin_4">@dimen/_3sdp</dimen>
+    <dimen name="margin_8">@dimen/_6sdp</dimen>
+    <dimen name="margin_10">@dimen/_7sdp</dimen>
+    <dimen name="margin_12">@dimen/_9sdp</dimen>
+    <dimen name="margin_16">@dimen/_12sdp</dimen>
+    <dimen name="margin_20">@dimen/_17sdp</dimen>
+    <dimen name="margin_25">@dimen/_20sdp</dimen>
+    <dimen name="margin_30">@dimen/_24sdp</dimen>
+    <dimen name="margin_32">@dimen/_25sdp</dimen>
+    <dimen name="margin_35">@dimen/_28sdp</dimen>
+    <dimen name="margin_40">@dimen/_32sdp</dimen>
+    <dimen name="margin_48">@dimen/_37sdp</dimen>
+    <dimen name="margin_50">@dimen/_38sdp</dimen>
+    <dimen name="margin_52">@dimen/_40sdp</dimen>
+    <dimen name="margin_60">@dimen/_46sdp</dimen>
+    <dimen name="margin_70">@dimen/_54sdp</dimen>
+    <dimen name="margin_80">@dimen/_62sdp</dimen>
+    <dimen name="margin_90">@dimen/_69sdp</dimen>
+    <dimen name="margin_100">@dimen/_76sdp</dimen>
+
+    <!--text size in ssp-->
+    <dimen name="text_size_ssp">@dimen/_12ssp</dimen>
+    <dimen name="title_size_ssp">@dimen/_14ssp</dimen>
+    <dimen name="small_subtext_size_ssp">@dimen/_10ssp</dimen>
+    <dimen name="even_small_subtext_ssp">@dimen/_8ssp</dimen>
+    <dimen name="heading_ssp">@dimen/_20ssp</dimen>
+    <dimen name="button_text_size_ssp">@dimen/_12ssp</dimen>
+    <dimen name="text_20_ssp">@dimen/_17ssp</dimen>
+    <dimen name="bottom_button_height">@dimen/_44sdp</dimen>
+    <dimen name="corner_radius_new">@dimen/_4sdp</dimen>
+    <dimen name="text_size_40">@dimen/_32ssp</dimen>
+    <dimen name="text_size_32">@dimen/_25ssp</dimen>
+</resources>

@@ -1,0 +1,17 @@
+[
+  {
+    "name":"Chris Evans",
+    "password":"1111",
+    "type":"Manager"
+  },
+  {
+    "name":"Brad Pitt",
+    "password":"2222",
+    "type":"Employee"
+  },
+  {
+    "name":"Tom Cruise",
+    "password":"3333",
+    "type":"Employee"
+  }
+]
