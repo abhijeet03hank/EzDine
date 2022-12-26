@@ -10,6 +10,9 @@ interface FoodDao {
     @Query("SELECT * FROM food_table")
     fun getFoodList(): List<Food>
 
+    @Query("SELECT * FROM food_table WHERE name LIKE :searchQuery1 OR type LIKE :searchQuery2")
+    fun getFoodListWithQuery(searchQuery1: String,searchQuery2: String): List<Food>
+
     @Query("SELECT * FROM food_table WHERE name LIKE:searchQuery" )
     fun getSearchedFoodList(searchQuery : String): List<Food>
 

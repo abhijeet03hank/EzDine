@@ -3,24 +3,24 @@
     "name":"Cheese Burger",
     "img_url":"https://www.gettyimages.in/detail/photo/gourmet-veggie-burger-with-red-skin-fries-royalty-free-image/534321264?adppopup=true",
     "price":"1.80",
-    "type":"Burger"
+    "type":"BURGERS"
   },
   {
     "name":"Coffee",
     "img_url":"https://www.gettyimages.in/detail/photo/cappuccino-on-wooden-table-royalty-free-image/678110080?adppopup=true",
     "price":"0.80",
-    "type":"Beverage"
+    "type":"HOT_DRINKS"
   },
   {
     "name":"King Burger",
     "img_url":"https://www.gettyimages.in/detail/photo/close-up-of-hamburger-and-french-fries-in-plate-royalty-free-image/1177637274?adppopup=true",
     "price":"2.80",
-    "type":"Burger"
+    "type":"BURGERS"
   },
   {
     "name":"Virgin Mojito",
     "img_url":"https://www.gettyimages.in/detail/news-photo/drink-shot-of-virgin-mojito-at-paradis-restaurant-cocktail-news-photo/1096127108?adppopup=true",
     "price":"1.20",
-    "type":"Beverage"
+    "type":"COLD_DRINKS"
   }
 ]

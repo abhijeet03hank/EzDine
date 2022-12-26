@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_16"
+    app:cardElevation="0dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/bgView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/dark_blue"
+        android:layout_marginBottom="@dimen/margin_80"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/cvAddItem"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/margin_10"
+        app:cardElevation="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_25"
+        android:layout_marginStart="@dimen/margin_25"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAddItemImage"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvAddItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Cheese Burger"
+        android:textSize="@dimen/title_size_ssp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@id/bgView"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvAddItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/theme_text"
+        android:text="$12.00"
+        android:textSize="@dimen/title_size_ssp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@id/tvAddItemName"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/llQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddItemPrice"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPlusQuantity"
+            android:layout_width="@dimen/margin_40"
+            android:layout_height="@dimen/margin_40"
+            app:srcCompat="@drawable/ic_add"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvAddItemQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/theme_text"
+            android:text="1"
+            android:gravity="center"
+            android:minWidth="@dimen/margin_40"
+            android:textSize="@dimen/text_20_ssp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMinusQuantity"
+            android:layout_width="@dimen/margin_40"
+            android:layout_height="@dimen/margin_40"
+            app:srcCompat="@drawable/ic_minus"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvAddItemSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Add Item"
+        android:background="@drawable/background_curved_12dp"
+        android:gravity="center"
+        android:minWidth="@dimen/margin_40"
+        android:textSize="@dimen/title_size_ssp"
+        android:paddingVertical="@dimen/margin_10"
+        android:paddingHorizontal="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_25"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@+id/llQuantity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/margin_30"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTotalValue"
+        app:layout_constraintEnd_toStartOf="@+id/tvAddItemCancel"/>
+
+    <TextView
+        android:id="@+id/tvAddItemCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Cancel"
+        android:background="@drawable/background_curved_12dp"
+        android:gravity="center"
+        android:minWidth="@dimen/margin_40"
+        android:textSize="@dimen/title_size_ssp"
+        android:paddingVertical="@dimen/margin_10"
+        android:paddingHorizontal="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@+id/llQuantity"
+        app:layout_constraintEnd_toStartOf="@+id/tvAddItemSubmit"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Total"
+        android:textSize="@dimen/text_size_ssp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTotalValue"
+        app:layout_constraintStart_toStartOf="@id/tvTotalValue"/>
+
+    <TextView
+        android:id="@+id/tvTotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="$12.00"
+        android:textSize="@dimen/text_20_ssp"
+        android:layout_marginStart="@dimen/margin_25"
+        android:layout_marginEnd="@dimen/margin_16"
+        app:layout_constraintTop_toTopOf="@+id/tvAddItemCancel"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAddItemCancel"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.cardview.widget.CardView>

@@ -1,6 +1,7 @@
 package com.demo.ezdine.activity
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -9,7 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setStatusBarColor()
         setSupportActionBar(binding.appBarMain.toolbar)
         getSessionUser()
 
@@ -96,20 +100,20 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        val searchItem: MenuItem? = menu?.findItem(R.id.action_search)
-        val searchView: SearchView? = searchItem?.actionView as SearchView
-        searchView?.isSubmitButtonEnabled = true
-        searchView?.setOnQueryTextListener(this)
-        val view = binding.navView.getHeaderView(0)
-        user?.let {
-            view.findViewById<TextView>(R.id.tvUserName).text = it.name
-            view.findViewById<TextView>(R.id.tvUserType).text = it.type
-        }
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        menuInflater.inflate(R.menu.main, menu)
+//        val searchItem: MenuItem? = menu?.findItem(R.id.action_search)
+//        val searchView: SearchView? = searchItem?.actionView as SearchView
+//        searchView?.isSubmitButtonEnabled = true
+//        searchView?.setOnQueryTextListener(this)
+//        val view = binding.navView.getHeaderView(0)
+//        user?.let {
+//            view.findViewById<TextView>(R.id.tvUserName).text = it.name
+//            view.findViewById<TextView>(R.id.tvUserType).text = it.type
+//        }
+//        return true
+//    }
 
 
 
@@ -133,10 +137,22 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun searchQuery(query: String?){
-        val searchQuery = "%$query%"
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    private fun setStatusBarColor() {
+        try {
+            val window = this.window
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
+            }
+            window.statusBarColor = ContextCompat.getColor(this, R.color.light_grey)
+        } catch (e: Exception) {
+            Log.d(TAG, "Error in setting custom status bar", e)
+        }
     }
 }

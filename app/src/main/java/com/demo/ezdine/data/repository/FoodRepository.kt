@@ -3,6 +3,7 @@ package com.demo.ezdine.data.repository
 import android.content.Context
 import android.util.Log
 import com.demo.ezdine.R
+import com.demo.ezdine.common.Constants
 import com.demo.ezdine.data.db.AppDatabase
 import com.demo.ezdine.data.model.Food
 import com.google.gson.Gson
@@ -18,7 +19,23 @@ class FoodRepository(
 
     suspend fun getFoodList()  =  appDatabase.foodDao().getFoodList()
 
+    suspend fun getFoodListWithQuery(query1: String,query2: String)  =  appDatabase.foodDao().getFoodListWithQuery(query1,query2)
+
+
     suspend fun isFoodDataAvailable()  =  appDatabase.foodDao().isFoodDataAvailable()
+
+    suspend fun getFoodTypeList() : List<String>  {
+        var foodTypeList = arrayListOf<String>()
+        foodTypeList.add(Constants.BURGER)
+        foodTypeList.add(Constants.HOT_DRINKS)
+        foodTypeList.add(Constants.COLD_DRINKS)
+        foodTypeList.add(Constants.PANCAKE)
+        foodTypeList.add(Constants.ICE_CREAM)
+        foodTypeList.add(Constants.CHIPS)
+        return  foodTypeList
+    }
+
+
 
     suspend fun insertFoodData(context: Context){
         try{
@@ -47,5 +64,4 @@ class FoodRepository(
             return null
         }
     }
-
 }

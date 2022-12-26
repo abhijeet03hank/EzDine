@@ -5,53 +5,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/motionLayout"
     app:layoutDescription="@xml/fragment_sale_scene"
-    android:background="@color/white">
+    android:background="@color/light_grey">
 
-<!--    <include layout="@layout/activity_scrolling"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFoodType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginStart="@dimen/margin_4"
+        android:layout_marginEnd="@dimen/margin_4"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <TextView
+        android:id="@+id/tvNoRecordsFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_32"
+        android:textColor="@color/light_red"
+        android:text="NO ITEMS FOUNDS"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/rvFoodType"
+        app:layout_constraintStart_toStartOf="parent"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFoodItems"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/rvFoodType"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-<!--    <androidx.constraintlayout.utils.widget.MockView-->
-<!--        android:id="@+id/button"-->
-<!--        app:mock_label="Side Panel"-->
-<!--        app:mock_diagonalsColor="#FFF"-->
-<!--        android:layout_width="180dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/light_red"/>-->
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="press"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvFoodType"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clInventoryScreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_red">
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="press"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn1"/>
 
-        <include
-            android:id="@+id/layoutInventoryScreen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/layout_inventory_screen"/>
-
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="press"
-            android:layout_marginEnd="@dimen/margin_16"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="press"
-            android:layout_marginEnd="@dimen/margin_16"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn1"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clCartScreen"
@@ -63,7 +76,11 @@
             android:id="@+id/layoutCartScreen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            layout="@layout/layout_cart_screen"/>
+            layout="@layout/layout_cart_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
