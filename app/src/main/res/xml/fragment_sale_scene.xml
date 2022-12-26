@@ -38,8 +38,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16"
-            android:layout_marginStart="@dimen/margin_16"
-            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_4"
+            android:layout_marginEnd="@dimen/margin_4"
             motion:layout_constraintEnd_toStartOf="@+id/clCartScreen"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
@@ -50,9 +50,9 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin_16"
             android:layout_marginStart="@dimen/margin_16"
-            android:layout_marginEnd="@dimen/margin_16"
-            motion:layout_constraintEnd_toEndOf="@+id/clCartScreen"
+            android:layout_marginEnd="@dimen/_200sdp"
             motion:layout_constraintTop_toBottomOf="@+id/rvFoodType"
+            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -75,7 +75,7 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@id/clCartScreen"
-            android:layout_width="@dimen/_200sdp"
+            android:layout_width="@dimen/_250sdp"
             android:layout_height="match_parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
@@ -85,8 +85,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16"
-            android:layout_marginStart="@dimen/margin_16"
-            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_4"
+            android:layout_marginEnd="@dimen/margin_4"
             motion:layout_constraintEnd_toStartOf="@+id/clCartScreen"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />

@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$ 12.00 "
-            android:textColor="@color/purple_500"
+            android:textColor="@color/theme_text"
             android:textSize="@dimen/text_size_ssp"
             android:layout_marginBottom="@dimen/margin_12"
             android:layout_marginTop="@dimen/margin_8"

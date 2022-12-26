@@ -19,10 +19,13 @@ import com.demo.ezdine.R
 import com.demo.ezdine.activity.MainActivity
 import com.demo.ezdine.adapter.FoodItemListAdapter
 import com.demo.ezdine.adapter.FoodTypeListAdapter
+import com.demo.ezdine.adapter.OrderListAdapter
 import com.demo.ezdine.common.AddFoodItemDialog
 import com.demo.ezdine.data.db.AppDatabase
 import com.demo.ezdine.data.model.Food
+import com.demo.ezdine.data.model.Order
 import com.demo.ezdine.data.repository.FoodRepository
+import com.demo.ezdine.data.repository.TransactionRepository
 import com.demo.ezdine.databinding.FragmentSaleBinding
 import com.demo.ezdine.viewmodel.LoginViewModel
 import com.demo.ezdine.viewmodel.LoginViewModelFactory
@@ -32,6 +35,7 @@ class SaleFragment : Fragment() {
 
     private var _binding: FragmentSaleBinding? = null
     private lateinit var foodRepository: FoodRepository
+    private lateinit var transactionRepository: TransactionRepository
     private lateinit var saleViewModel: SaleViewModel
     private lateinit var saleViewModelFactory: SaleViewModelFactory
     private lateinit var foodItemListAdapter : FoodItemListAdapter
@@ -50,7 +54,8 @@ class SaleFragment : Fragment() {
 
         val database = AppDatabase.getDatabase(requireActivity())
         foodRepository = FoodRepository(database)
-        saleViewModelFactory = SaleViewModelFactory(requireActivity().application, foodRepository)
+        transactionRepository = TransactionRepository(database)
+        saleViewModelFactory = SaleViewModelFactory(requireActivity().application, foodRepository,transactionRepository)
         saleViewModel = ViewModelProvider(requireActivity(), saleViewModelFactory)[SaleViewModel::class.java]
 
         binding.btn1.setOnClickListener {
@@ -59,6 +64,11 @@ class SaleFragment : Fragment() {
 
         binding.btn2.setOnClickListener {
             binding.motionLayout.transitionToState(R.id.end)
+        }
+
+        binding.layoutCartScreen.ivCloseCartView.setOnClickListener {
+            binding.motionLayout.transitionToState(R.id.start)
+            saleViewModel.clearOrderItem()
         }
         return root
     }
@@ -87,12 +97,24 @@ class SaleFragment : Fragment() {
 
                 saleViewModel.orderItemList.observe(viewLifecycleOwner, Observer { orderItemList ->
                     if (!orderItemList.isNullOrEmpty()) {
+                        populateOrderList(orderItemList as ArrayList<Order>)
                         binding.motionLayout.transitionToState(R.id.end)
-//                        populateFoodItems(foodItemList as ArrayList<Food>)
                     } else{
-//                        populateFoodItems(arrayListOf<Food>() )
+                        populateOrderList(arrayListOf<Order>() )
                         binding.motionLayout.transitionToState(R.id.start)
                     }
+                })
+
+                saleViewModel.subTotal.observe(viewLifecycleOwner, Observer { it ->
+                    binding.layoutCartScreen.tvSubTotalValue.text = "$ "+it
+                })
+
+                saleViewModel.tax.observe(viewLifecycleOwner, Observer { it ->
+                    binding.layoutCartScreen.tvTaxValue.text = "$ "+it
+                })
+
+                saleViewModel.total.observe(viewLifecycleOwner, Observer { it ->
+                    binding.layoutCartScreen.tvTotalValue.text = "$ "+it
                 })
             }
         } catch (e: Exception) {
@@ -119,7 +141,8 @@ class SaleFragment : Fragment() {
                 foodItemListAdapter.updateFoodItemList(foodItemList)
             }else {
                 binding.rvFoodItems.layoutManager =
-                    object : GridLayoutManager(requireActivity(), 3, RecyclerView.VERTICAL, false) {
+                    object : GridLayoutManager(requireActivity(), 3, RecyclerView.VERTICAL, false)
+                    {
                         override fun checkLayoutParams(lp: RecyclerView.LayoutParams): Boolean {
                             // force width of viewHolder to be a fraction of RecyclerViews
                             // this will override layout_width from xml
@@ -139,6 +162,21 @@ class SaleFragment : Fragment() {
             Log.d(TAG, e.toString())
         }
     }
+
+    private fun populateOrderList(orderList: ArrayList<Order>) {
+        try {
+            binding.layoutCartScreen.rvOrderItems.layoutManager =
+                LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, false)
+            var orderListAdapter = OrderListAdapter(requireActivity(), orderList) {
+
+            }
+            binding.layoutCartScreen.rvOrderItems.adapter = orderListAdapter
+        } catch (e: Exception) {
+            Log.d(TAG, e.toString())
+        }
+    }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

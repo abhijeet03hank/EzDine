@@ -20,12 +20,15 @@ class AddFoodItemDialog(context: Context,val  food: Food,val onAddClick:(Order)-
         setContentView(binding.root)
         window!!.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 //        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        window?.setBackgroundDrawableResource(android.R.color.transparent);
+
 
         setCancelable(true)
         var baseQuantity = 1
 
         binding.tvAddItemName.text = food.name
         binding.tvAddItemPrice.text = "$"+food.price
+        binding.tvTotalValue.text = "$"+food.price
 
             GlideApp.with(context)
 //                .load(food.img_url)

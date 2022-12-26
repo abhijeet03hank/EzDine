@@ -64,5 +64,4 @@ class FoodRepository(
             return null
         }
     }
-
 }
