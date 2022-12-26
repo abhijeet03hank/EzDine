@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun searchQuery(query: String?){
-        val searchQuery = "%$query%"
+
     }
 
     override fun onDestroy() {
