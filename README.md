@@ -1,6 +1,6 @@
 # EzDine
 
-Dummy Project representing Food app. (Kotlin, MVVM, Room)
+Dummy Project representing Food app. #Kotlin, #MVVM, #Room
 
 
 ![1](https://user-images.githubusercontent.com/42829836/209576208-c845d3d5-e461-4b25-9f7d-1690e3bae857.jpeg)
