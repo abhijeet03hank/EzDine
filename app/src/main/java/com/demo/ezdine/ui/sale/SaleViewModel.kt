@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.demo.ezdine.data.model.Food
 import com.demo.ezdine.data.model.Order
+import com.demo.ezdine.data.model.Transaction
 import com.demo.ezdine.data.model.User
 import com.demo.ezdine.data.repository.FoodRepository
 import com.demo.ezdine.data.repository.TransactionRepository
@@ -19,11 +20,6 @@ class SaleViewModel(
     private val transactionRepository: TransactionRepository
 ) :   AndroidViewModel(appContext)  {
     private val TAG ="SaleViewModel"
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Sale Fragment"
-    }
-    val text: LiveData<String> = _text
 
     private var _foodTypeList : MutableLiveData<List<String>?> = MutableLiveData()
     val foodTypeList : LiveData<List<String>?> = _foodTypeList
@@ -127,5 +123,10 @@ class SaleViewModel(
         }
     }
 
+    fun insertTransaction(transaction: Transaction){
+        viewModelScope.launch(Dispatchers.IO) {
+           transactionRepository.insertTransaction(transaction )
+        }
+    }
 
 }

@@ -28,8 +28,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPin"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minWidth="@dimen/_200sdp"
         android:hint="@string/enter_pin"
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/black"
@@ -43,7 +44,6 @@
         android:layout_marginStart="@dimen/margin_25"
         android:layout_marginEnd="@dimen/margin_25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLoginHeader">
 
 
@@ -76,8 +76,9 @@
             />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loggin_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minWidth="@dimen/_200sdp"
         android:text="@string/login"
         android:textColor="@color/white"
         android:background="@drawable/background_curved_black_corner_12dp"
@@ -85,7 +86,6 @@
         android:layout_marginEnd="@dimen/margin_25"
         android:layout_marginTop="@dimen/margin_40"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPin"/>
 
 

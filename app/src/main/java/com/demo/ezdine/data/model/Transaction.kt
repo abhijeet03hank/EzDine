@@ -11,7 +11,7 @@ import java.io.Serializable
 data class Transaction(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int = 0,
+    var id: Int = 0 ,
     @SerializedName("first_name")
     var first_name: String,
     @SerializedName("last_name")

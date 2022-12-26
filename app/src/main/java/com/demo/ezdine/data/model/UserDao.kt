@@ -8,8 +8,8 @@ import androidx.room.Query
 @Dao
 interface UserDao {
 
-    @Query("SELECT * FROM user_table WHERE password LIKE:password")
-      fun getUser(password: String): List<User>
+    @Query("SELECT * FROM user_table WHERE password LIKE:pin")
+      fun getUser(pin: String): List<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
      fun insertUser(user: User)

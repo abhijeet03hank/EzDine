@@ -1,25 +1,25 @@
 [
   {
     "name":"Cheese Burger",
-    "img_url":"https://www.gettyimages.in/detail/photo/gourmet-veggie-burger-with-red-skin-fries-royalty-free-image/534321264?adppopup=true",
+    "img_url":"https://www.shutterstock.com/shutterstock/photos/1816178048/display_1500/stock-photo-small-size-burger-slider-with-reflection-on-table-with-blur-background-and-very-sharp-colors-1816178048.jpg",
     "price":"1.80",
     "type":"BURGERS"
   },
   {
     "name":"Coffee",
-    "img_url":"https://www.gettyimages.in/detail/photo/cappuccino-on-wooden-table-royalty-free-image/678110080?adppopup=true",
+    "img_url":"https://www.shutterstock.com/shutterstock/photos/251835517/display_1500/stock-photo-morning-coffee-cup-on-table-251835517.jpg",
     "price":"0.80",
     "type":"HOT_DRINKS"
   },
   {
     "name":"King Burger",
-    "img_url":"https://www.gettyimages.in/detail/photo/close-up-of-hamburger-and-french-fries-in-plate-royalty-free-image/1177637274?adppopup=true",
+    "img_url":"https://www.shutterstock.com/shutterstock/photos/597264059/display_1500/stock-photo-big-burger-in-the-foreground-selective-focus-on-a-king-size-burger-with-laying-around-french-fries-597264059.jpg",
     "price":"2.80",
     "type":"BURGERS"
   },
   {
     "name":"Virgin Mojito",
-    "img_url":"https://www.gettyimages.in/detail/news-photo/drink-shot-of-virgin-mojito-at-paradis-restaurant-cocktail-news-photo/1096127108?adppopup=true",
+    "img_url":"https://www.shutterstock.com/shutterstock/photos/1911762766/display_1500/stock-photo-mojito-or-virgin-mojito-long-rum-drink-with-fresh-mint-lime-juice-cane-sugar-and-soda-1911762766.jpg",
     "price":"1.20",
     "type":"COLD_DRINKS"
   }

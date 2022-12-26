@@ -39,8 +39,8 @@ class OrderListAdapter(context: Context, orderItemList: ArrayList<Order>, privat
     inner class MyViewHolder(private val binding: RowOrderListViewBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root){
         fun bind(orderItem : Order){
             GlideApp.with(context)
-//                .load(foodItem.img_url)
-                .load("https://s3.amazonaws.com/koya-dev-videos/kindness/8da807aa-1e1e-413d-bf9b-5bb084646593/medialibrary/9456621508/videos/1eb78337-d569-41bd-95ad-153d9098de03.png")
+                .load(orderItem.food.img_url)
+//                .load("https://s3.amazonaws.com/koya-dev-videos/kindness/8da807aa-1e1e-413d-bf9b-5bb084646593/medialibrary/9456621508/videos/1eb78337-d569-41bd-95ad-153d9098de03.png")
                 .centerCrop()
                 .into(binding.ivAddItemImage)
             binding.tvOrderFoodName.text = orderItem.food.name

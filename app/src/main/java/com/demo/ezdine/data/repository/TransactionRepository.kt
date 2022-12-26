@@ -8,7 +8,7 @@ class TransactionRepository(
 ) {
     private val TAG ="TransactionRepository"
 
-    private suspend fun insertTransaction(transaction: Transaction) = appDatabase.transactionDao().insertTransaction(transaction)
+     suspend fun insertTransaction(transaction: Transaction) = appDatabase.transactionDao().insertTransaction(transaction)
 
     suspend fun getTransactionList()  =  appDatabase.transactionDao().getTransactionList()
 }

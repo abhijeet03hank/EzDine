@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.demo.ezdine.data.model.*
 
 @Database(
-    entities = [User::class , Food::class],
+    entities = [User::class , Food::class , Transaction::class],
     version = 1,
     exportSchema = false
 )
