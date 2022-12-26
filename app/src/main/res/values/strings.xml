@@ -15,6 +15,12 @@
     <string name="login">Login</string>
     <string name="enter_pin">Enter PIN</string>
 
+    <string name="enter_table_no">Enter Table Number</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>

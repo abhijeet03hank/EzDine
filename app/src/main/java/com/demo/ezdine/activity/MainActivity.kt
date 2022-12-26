@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var user: User
+    lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,20 +100,20 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         }
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
 //        menuInflater.inflate(R.menu.main, menu)
 //        val searchItem: MenuItem? = menu?.findItem(R.id.action_search)
 //        val searchView: SearchView? = searchItem?.actionView as SearchView
 //        searchView?.isSubmitButtonEnabled = true
 //        searchView?.setOnQueryTextListener(this)
-//        val view = binding.navView.getHeaderView(0)
-//        user?.let {
-//            view.findViewById<TextView>(R.id.tvUserName).text = it.name
-//            view.findViewById<TextView>(R.id.tvUserType).text = it.type
-//        }
-//        return true
-//    }
+        val view = binding.navView.getHeaderView(0)
+        user?.let {
+            view.findViewById<TextView>(R.id.tvUserName).text = it.name
+            view.findViewById<TextView>(R.id.tvUserType).text = it.type
+        }
+        return true
+    }
 
 
 

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_order"
-        android:name="com.demo.ezdine.ui.transaction.OrderFragment"
+        android:name="com.demo.ezdine.ui.transaction.TransactionFragment"
         android:label="@string/menu_order"
         tools:layout="@layout/fragment_order" />
 

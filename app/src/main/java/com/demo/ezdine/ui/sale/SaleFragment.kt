@@ -21,6 +21,8 @@ import com.demo.ezdine.adapter.FoodItemListAdapter
 import com.demo.ezdine.adapter.FoodTypeListAdapter
 import com.demo.ezdine.adapter.OrderListAdapter
 import com.demo.ezdine.common.AddFoodItemDialog
+import com.demo.ezdine.common.ConfirmPaymentDialog
+import com.demo.ezdine.common.ToGoConfirmDialog
 import com.demo.ezdine.data.db.AppDatabase
 import com.demo.ezdine.data.model.Food
 import com.demo.ezdine.data.model.Order
@@ -39,6 +41,7 @@ class SaleFragment : Fragment() {
     private lateinit var saleViewModel: SaleViewModel
     private lateinit var saleViewModelFactory: SaleViewModelFactory
     private lateinit var foodItemListAdapter : FoodItemListAdapter
+    private lateinit var finalPrice : String
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -58,19 +61,48 @@ class SaleFragment : Fragment() {
         saleViewModelFactory = SaleViewModelFactory(requireActivity().application, foodRepository,transactionRepository)
         saleViewModel = ViewModelProvider(requireActivity(), saleViewModelFactory)[SaleViewModel::class.java]
 
-        binding.btn1.setOnClickListener {
-                binding.motionLayout.transitionToState(R.id.start)
-        }
+        return root
+    }
 
-        binding.btn2.setOnClickListener {
-            binding.motionLayout.transitionToState(R.id.end)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initObservers()
+        initClickListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(!(requireActivity() as MainActivity).user.type.contentEquals("Manager")){
+            binding.layoutCartScreen.tvToGoBtn.visibility = View.GONE
         }
+    }
+
+
+    private fun initClickListeners(){
+
 
         binding.layoutCartScreen.ivCloseCartView.setOnClickListener {
             binding.motionLayout.transitionToState(R.id.start)
             saleViewModel.clearOrderItem()
         }
-        return root
+
+        binding.layoutCartScreen.tvPayBtn.setOnClickListener {
+            var confirmPaymentDialog = ConfirmPaymentDialog(requireActivity(),finalPrice){
+                binding.motionLayout.transitionToState(R.id.start)
+                saleViewModel.insertTransaction(it)
+                saleViewModel.clearOrderItem()
+            }
+            confirmPaymentDialog.show()
+        }
+
+        binding.layoutCartScreen.tvToGoBtn.setOnClickListener {
+            var toGoConfirmDialog = ToGoConfirmDialog(requireActivity(),finalPrice){
+                binding.motionLayout.transitionToState(R.id.start)
+                saleViewModel.insertTransaction(it)
+                saleViewModel.clearOrderItem()
+            }
+            toGoConfirmDialog.show()
+        }
     }
 
 
@@ -115,6 +147,7 @@ class SaleFragment : Fragment() {
 
                 saleViewModel.total.observe(viewLifecycleOwner, Observer { it ->
                     binding.layoutCartScreen.tvTotalValue.text = "$ "+it
+                    finalPrice = it
                 })
             }
         } catch (e: Exception) {
@@ -178,10 +211,6 @@ class SaleFragment : Fragment() {
 
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initObservers()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

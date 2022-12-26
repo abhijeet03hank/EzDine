@@ -40,8 +40,9 @@ class FoodItemListAdapter(context: Context, foodItemList: ArrayList<Food>,privat
     inner class MyViewHolder(private val binding: RowFoodItemListViewBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root){
         fun bind(foodItem : Food){
             GlideApp.with(context)
-//                .load(foodItem.img_url)
-                .load("https://s3.amazonaws.com/koya-dev-videos/kindness/8da807aa-1e1e-413d-bf9b-5bb084646593/medialibrary/9456621508/videos/1eb78337-d569-41bd-95ad-153d9098de03.png")
+                .load(foodItem.img_url)
+//                .load("https://www.shutterstock.com/shutterstock/photos/1911762766/display_1500/stock-photo-mojito-or-virgin-mojito-long-rum-drink-with-fresh-mint-lime-juice-cane-sugar-and-soda-1911762766.jpg")
+//                .load("https://s3.amazonaws.com/koya-dev-videos/kindness/8da807aa-1e1e-413d-bf9b-5bb084646593/medialibrary/9456621508/videos/1eb78337-d569-41bd-95ad-153d9098de03.png")
                 .centerCrop()
                 .into(binding.ivFoodItemImage)
             binding.tvFoodItemName.text = foodItem.name

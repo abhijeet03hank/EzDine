@@ -30,9 +30,8 @@ class AddFoodItemDialog(context: Context,val  food: Food,val onAddClick:(Order)-
         binding.tvAddItemPrice.text = "$"+food.price
         binding.tvTotalValue.text = "$"+food.price
 
-            GlideApp.with(context)
-//                .load(food.img_url)
-                .load("https://s3.amazonaws.com/koya-dev-videos/kindness/8da807aa-1e1e-413d-bf9b-5bb084646593/medialibrary/9456621508/videos/1eb78337-d569-41bd-95ad-153d9098de03.png")
+        GlideApp.with(context)
+                .load(food.img_url)
                 .centerCrop()
                 .into(binding.ivAddItemImage)
 
